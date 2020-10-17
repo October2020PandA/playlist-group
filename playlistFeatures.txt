@@ -1,0 +1,17 @@
+We want to create an app where a user can submit one song and the app will create an entire playlist based off of that songs BPM, tempo, energy and other factors.
+
+Grab github usernames
+
+Frontend - William
+Backend - Danny
+API Integration - Moosa
+API Integration Translator - Jason
+
+Optional Features
+1. Pushing the playlist to the Spotify user account
+2. 30 Second playback in web app
+3. Naming the playlist 
+4. Connecting Spotify account to application
+5. Random Playlist 
+6. Give option for how long playlist is
+7. Search bar for playlist
