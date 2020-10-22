@@ -1,11 +1,12 @@
-.background {
-    background-color: #005494;
-}
+/*.background {
+    background-color: #E9C46A;
+}*/
 
 .white {
     color: white;
 }
 
 .em {
-    font-style: italic;
+    font-weight: bold;
+    font-size: 10em;
 }
