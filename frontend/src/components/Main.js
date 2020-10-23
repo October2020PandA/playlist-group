@@ -4,7 +4,7 @@ import styles from '../modules/Main.module.css';
 
 const Main = () => {
     return(
-        <div className={`container-fluid`}>
+        <div>
             <div class="row">
                 <div class="col-7" />
                 <Paper elevation={7} className={`${styles.paper} col-4`}>
