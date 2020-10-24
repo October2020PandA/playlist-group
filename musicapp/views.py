@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-
+#testing 123
 #get request to render page
 #post request for form submital search
 #get request to return similar songs and attributes(i.e album cover/song title)
@@ -11,13 +11,14 @@ def index(request):
     
     #post request
     results = sp.search(q='weezer', limit=10)
+    #Set q to variable/search remember to set to q
     saved_uri = []
     for idx, track in enumerate(results['tracks']['items']):
         print(idx, track['name'] , track['id']) #prints index, track name, spotify track ID
         uri = track['uri']
         saved_uri.append(uri)#save a list to access audio features of soundtrack
     #######################
-    # print(results['tracks']['items'][0]['uri'])#prints track ID
+    #print(results['tracks']['items'][0]['uri'])#prints track ID
     #print(saved_uri[0])
     song1_features = sp.audio_features(saved_uri[0])#audio features of the first result of search
     print(song1_features)
