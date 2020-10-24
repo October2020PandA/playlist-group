@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-
+#testing 123
 #get request to render page
 #post request for form submital search
 #get request to return similar songs and attributes(i.e album cover/song title)
