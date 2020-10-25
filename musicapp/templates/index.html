@@ -6,6 +6,21 @@
         <title>Document</title>
     </head>
     <body>
-        
+        <form action="/search" method=POST>
+            {% csrf_token %}
+            <label for="Soundtrack">Song:</label>
+            <input type="text" id="Soundtrack" name='search_query'>
+            <input type="submit" value="Search">
+        </form>
+
+        {{list_songs}}
+        <form action="/selected_song" method=POST>
+            {% csrf_token %}
+            <label for="URI">URI_select song:</label>
+            <input type="text" id="URI" name='selected_track'>
+            <input type="submit" value="Search">
+        </form>
+        <!-- weezer
+        spotify:track:2MLHyLy5z5l5YRp7momlgw island in the sun -->
     </body>
 </html>

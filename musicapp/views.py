@@ -4,39 +4,37 @@ from spotipy.oauth2 import SpotifyClientCredentials
 #testing 123
 #get request to render page
 #post request for form submital search
-#get request to return similar songs and attributes(i.e album cover/song title)
+
+sp = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(client_id='d5c02f804f4c43459bc60d6cb37ba13b', client_secret='0db63341d13d4197a37aa030d3cd5f7e'))
+
 def index(request):
-    # search for song with limit of 10 results
+    return render(request, 'index.html')
+
+def search(request):
     sp = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(client_id='d5c02f804f4c43459bc60d6cb37ba13b', client_secret='0db63341d13d4197a37aa030d3cd5f7e'))
-    
-    #post request
-    results = sp.search(q='weezer', limit=10)
-    #Set q to variable/search remember to set to q
+    # search for song with limit of 10 results
+    query = request.POST['search_query']#example = weezer
+    results = sp.search(q= query, limit=5)
     saved_uri = []
     for idx, track in enumerate(results['tracks']['items']):
         print(idx, track['name'] , track['id']) #prints index, track name, spotify track ID
         uri = track['uri']
         saved_uri.append(uri)#save a list to access audio features of soundtrack
-    #######################
-    #print(results['tracks']['items'][0]['uri'])#prints track ID
-    #print(saved_uri[0])
-    song1_features = sp.audio_features(saved_uri[0])#audio features of the first result of search
-    print(song1_features)
-    song1_tempo = song1_features[0]['tempo']
+    context = {
+        'list_songs': results 
+    }
+    return render(request, 'index.html', context)
 
+def selected_song(request):
+    select_uri = request.POST['selected_track'] #POST request to get selected song URI string
+    # selected_feature = request.POST['feature_type'] # bpm or tempo
+    song_features = sp.audio_features(select_uri)#audio features of result of selected
+    print(song_features)
+    song_desiredtype = song_features[0]['tempo'] # Create your views here.
+    similar_songs = sp.recommendations(seed_tracks=[select_uri], limit=5, target_tempo = song_desiredtype)
+    print(similar_songs)
+    context1 = {
+        'recommended_songs': similar_songs
+    }
 
-    results1 = sp.search(q='Sunburn', limit=1)
-    saved1_uri = []
-    for idx1, track1 in enumerate(results1['tracks']['items']):
-        print(idx1, track1['name'] , track1['id']) #prints index, track name, spotify track ID
-        uri1 = track1['uri']
-        saved1_uri.append(uri1)#save a list to access audio features of soundtrack
-    song2_features = sp.audio_features(saved1_uri[0])#audio features of the first result of search
-    song2_tempo = song2_features[0]['tempo']
-    print(song1_tempo, 'vs', song2_tempo)
-
-    results3 = sp.recommendations(seed_tracks=[saved_uri[0]], limit=5, target_tempo = song1_tempo)
-    print(results3)
-
-    return HttpResponse("This is my response!")
-# Create your views here.
+    return render(request, 'index.html', context1)
