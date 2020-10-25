@@ -1,12 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Paper, Button } from '@material-ui/core';
 import styles from '../modules/Main.module.css';
+import axios from 'axios';
 
 const Main = () => {
+    const [song, setSong] = useState("")
+    const [errs, setErrs] = useState("")
     const submitHandler = (e) => {
         e.preventDefault()
         console.log("hello world")
-    }
+        axios
+            .post("http://127.0.0.1:8000/search", {song})
+            .then((res) => {
+                if (res.data.errors) {
+                    setErrs(res.data.errors)
+                } /*else {
+                    navigate("/items/" + res.data._id)
+                }*/
+            })
+            .catch((err) => console.log(err))
+    };
 
     return(
         <div>
