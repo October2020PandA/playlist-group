@@ -1,5 +1,15 @@
 .paper {
-    width: 20rem; 
-    height: 20rem;
-    padding: 2rem;
+    font-weight: 300;
+    font-size: 2em;
+    padding: 3em 2em;
+}
+.songField {
+    margin-bottom: 1.5em;
+    font-weight: 300;
+}
+.selectField {
+    font-weight: 300;
+}
+.header {
+    font-size: 1.1em;
 }

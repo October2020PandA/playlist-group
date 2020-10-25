@@ -1,11 +1,4 @@
-.background {
-    background-color: #005494;
-}
-
-.white {
-    color: white;
-}
-
 .em {
-    font-style: italic;
+    font-weight: bold;
+    font-size: 10em;
 }
