@@ -75,14 +75,3 @@ const Main = () => {
 };
 
 export default Main;
-
-
-// axios.get(`${API_HOST}/csrf/`, {credentials: 'include'})
-
-// axios.post(`${API_HOST}/search`, {credentials: 'include'}, {
-//             headers: (
-//             _csrfToken === null
-//                 ? {'X-CSRFToken': getCsrfToken()}
-//                 : {'X-CSRFToken': _csrfToken}
-//             ),
-//         })
