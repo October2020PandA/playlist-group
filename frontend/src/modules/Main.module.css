@@ -2,16 +2,24 @@
     font-weight: 300;
     /* font-size: 2em; */
     padding: 3em 2em;
-    width: 25em;
+    width: 500px;
+    max-width: 520px;
+    min-width: 300px;
+    margin-bottom: 2.5rem;
 }
+
+
+
 .songField {
     margin-bottom: 1.5em;
     font-weight: 300;
     width: 10em;
 }
+
 .selectField {
     font-weight: 300;
 }
+
 .header {
     font-size: 1.1em;
 }

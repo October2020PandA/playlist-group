@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { Paper } from '@material-ui/core';
 import styles from '../modules/Main.module.css';
 import axios from 'axios';
+
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.withCredentials = true
 
@@ -53,8 +54,7 @@ const Main = () => {
     return(
         <>            
             <div>
-                <div className="row">
-                    <div className="col-7" />
+                <div className="row d-flex justify-content-around">                    
                     <Paper elevation={7} className={`${styles.paper} col-4`}>
                         <p className={`${styles.header}`}>Go ahead and enter in a song...</p>
                         <form onSubmit={submitHandler}>
@@ -67,6 +67,9 @@ const Main = () => {
                             <option value="Tempo">Tempo</option>
                             <option value="Energy">Energy</option>
                         </select>
+                    </Paper>
+                    <Paper elevation={7} className={`${styles.paper} col-4`}>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus blanditiis, itaque commodi deserunt enim soluta sequi, qui iste maxime tempore vero explicabo officia cupiditate, ex dolorem. Exercitationem beatae sunt nulla.</p>
                     </Paper>
                 </div>
             </div>
