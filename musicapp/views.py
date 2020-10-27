@@ -66,7 +66,7 @@ def selected_song(request):
     # print(res['select_uri'])
     print(request._body.decode("utf-8"))
     print('\n\n\n', request._body, '\n\n\n')
-    # select_uri = request.POST['selected_track'] #POST request to get selected song URI string
+    select_uri = request.POST['selected_track'] #POST request to get selected song URI string
     # selected_feature = request.POST['feature_type'] # bpm or tempo
     song_features = sp.audio_features(select_uri)#audio features of result of selected
     print(song_features)
