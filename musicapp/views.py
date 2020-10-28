@@ -62,11 +62,13 @@ def search(request):
 
 def selected_song(request):
     sp = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(client_id='d5c02f804f4c43459bc60d6cb37ba13b', client_secret='0db63341d13d4197a37aa030d3cd5f7e'))
-    # res = json.loads(request._body.decode("utf-8")) 
-    # print(res['select_uri'])
-    print(request._body.decode("utf-8"))
-    print('\n\n\n', request._body, '\n\n\n')
-    select_uri = request.POST['selected_track'] #POST request to get selected song URI string
+    res = json.loads(request._body.decode("utf-8"))
+
+    #print('\n\n\n', res['select_uri'], '\n\n\n')
+
+    print('\n\n\n', res, type(res), '\n\n\n')
+    #print('\n\n\n', request._body, '\n\n\n')
+    select_uri = res['select_uri'] #POST request to get selected song URI string
     # selected_feature = request.POST['feature_type'] # bpm or tempo
     song_features = sp.audio_features(select_uri)#audio features of result of selected
     print(song_features)
