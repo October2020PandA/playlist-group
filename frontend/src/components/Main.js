@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import { Paper } from '@material-ui/core';
 import styles from '../modules/Main.module.css';
 import axios from 'axios';
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
 
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.withCredentials = true
@@ -270,12 +272,12 @@ const Main = () => {
             <div>
                 <div className="row d-flex justify-content-around">
                     <Paper elevation={7} className={`${styles.paper} col-3`}>
-                        <p className={`${styles.header}`}>Go ahead and enter in a song...</p>
+                        <h1 className={`${styles.header}`}>Enter a song</h1>
                         <form onSubmit={submitHandler}>
                             <input type="text" name="search_query" className={`${styles.songField} mb-3`} placeholder="Song..." onChange={onChangeHandler} ></input>
-                            <button type="submit">Submit</button>
+                            <Button type="submit" className={`${styles.button}`}>Search</Button>
                         </form>
-                        <p className={`${styles.header}`}>How should we make your playlist?</p>
+                        <p>How should we make your playlist?</p>
                         <select name="playlistType" className={`mt-0 ${styles.selectField}`}>
                             <option value="BPM">BPM</option>
                             <option value="Tempo">Tempo</option>
@@ -283,59 +285,119 @@ const Main = () => {
                         </select>
                     </Paper>
                     <Paper elevation={7} className={`${styles.paper} col-3`}>
-                        <h1>Songs</h1>
-                        <Paper name='selected_track' id="selected_track" onClick={selectOneHandler}>
-                            <p>{songOne}</p>
-                            <p>{songOneArtist}</p>
-                            <img src={songOneImage} />
+                        <h1 className={`${styles.header}`}>Songs</h1>
+                        <Paper name='selected_track' id="selected_track" className={`${styles.card}`} onClick={selectOneHandler}>
+                            <Grid container direction="row" justify="flex-start" alignItems="stretch">
+                                <Grid item xs={5}>
+                                    <img src={songOneImage} className={`${styles.album}`} />
+                                </Grid>
+                                <Grid container item xs={7} className={`${styles.column}`}>
+                                    <p>{songOne}</p>
+                                    <p>{songOneArtist}</p>
+                                </Grid>
+                            </Grid>
                         </Paper>
-                        <Paper name='selected_track' id="selected_track" onClick={selectTwoHandler}>
-                            <p>{songTwo}</p>
-                            <p>{songTwoArtist}</p>
-                            <img src={songTwoImage} />
+                        <Paper name='selected_track' id="selected_track" className={`${styles.card}`} onClick={selectTwoHandler}>
+                            <Grid container direction="row" justify="flex-start" alignItems="center">
+                                <Grid item xs={5}>
+                                    <img src={songTwoImage} className={`${styles.album}`} />
+                                </Grid>
+                                <Grid container item xs={7} className={`${styles.column}`}>
+                                    <p>{songTwo}</p>
+                                    <p>{songTwoArtist}</p>
+                                </Grid>
+                            </Grid>
                         </Paper>
-                        <Paper name='selected_track' id="selected_track" onClick={selectThreeHandler}>
-                            <p>{songThree}</p>
-                            <p>{songThreeArtist}</p>
-                            <img src={songThreeImage} />
+                        <Paper name='selected_track' id="selected_track" className={`${styles.card}`} onClick={selectThreeHandler}>
+                            <Grid container direction="row" justify="flex-start" alignItems="center">
+                                <Grid item xs={5}>
+                                    <img src={songThreeImage} className={`${styles.album}`} />
+                                </Grid>
+                                <Grid container item xs={7} className={`${styles.column}`}>
+                                    <p>{songThree}</p>
+                                    <p>{songThreeArtist}</p>
+                                </Grid>
+                            </Grid>
                         </Paper>
-                        <Paper name='selected_track' id="selected_track" onClick={selectFourHandler}>
-                            <p>{songFour}</p>
-                            <p>{songFourArtist}</p>
-                            <img src={songFourImage} />
+                        <Paper name='selected_track' id="selected_track" className={`${styles.card}`} onClick={selectFourHandler}>
+                            <Grid container direction="row" justify="flex-start" alignItems="center">
+                                <Grid item xs={5}>
+                                    <img src={songFourImage} className={`${styles.album}`} />
+                                </Grid>
+                                <Grid container item xs={7} className={`${styles.column}`}>
+                                    <p>{songFour}</p>
+                                    <p>{songFourArtist}</p>
+                                </Grid>
+                            </Grid>
                         </Paper>
-                        <Paper name='selected_track' id="selected_track" onClick={selectFiveHandler}>
-                            <p>{songFive}</p>
-                            <p>{songFiveArtist}</p>
-                            <img src={songFiveImage} />
+                        <Paper name='selected_track' id="selected_track" className={`${styles.card}`} onClick={selectFiveHandler}>
+                            <Grid container direction="row" justify="flex-start" alignItems="center">
+                                <Grid item xs={5}>
+                                    <img src={songFiveImage} className={`${styles.album}`} />
+                                </Grid>
+                                <Grid container item xs={7} className={`${styles.column}`}>
+                                    <p>{songFive}</p>
+                                    <p>{songFiveArtist}</p>
+                                </Grid>
+                            </Grid>
                         </Paper>
                     </Paper>
                     <Paper elevation={7} className={`${styles.paper} col-3`}>
-                        <h1>Your Playlist</h1>
-                        <Paper>
-                            <p>{playlistOne}</p>
-                            <p>{playlistOneArtist}</p>
-                            <img src={playlistOneImage} />
+                        <h1 className={`${styles.header}`}>Your Playlist</h1>
+                        <Paper className={`${styles.card}`}>
+                            <Grid container direction="row" justify="flex-start" alignItems="center">
+                                <Grid item xs={5}>
+                                    <img src={playlistOneImage} className={`${styles.album}`} />
+                                </Grid>
+                                <Grid container item xs={7} className={`${styles.column}`}>
+                                    <p>{playlistOne}</p>
+                                    <p>{playlistOneArtist}</p>
+                                </Grid>
+                            </Grid>
                         </Paper>
-                        <Paper>
-                            <p>{playlistTwo}</p>
-                            <p>{playlistTwoArtist}</p>
-                            <img src={playlistTwoImage} />
+                        <Paper className={`${styles.card}`}>
+                            <Grid container direction="row" justify="flex-start" alignItems="center">
+                                <Grid item xs={5}>
+                                    <img src={playlistTwoImage} className={`${styles.album}`} />
+                                </Grid>
+                                <Grid container item xs={7} className={`${styles.column}`}>
+                                    <p>{playlistTwo}</p>
+                                    <p>{playlistTwoArtist}</p>
+                                </Grid>
+                            </Grid>
                         </Paper>
-                        <Paper>
-                            <p>{playlistThree}</p>
-                            <p>{playlistThreeArtist}</p>
-                            <img src={playlistThreeImage} />
+                        <Paper className={`${styles.card}`}>
+                            <Grid container direction="row" justify="flex-start" alignItems="center">
+                                <Grid item xs={5}>
+                                    <img src={playlistThreeImage} className={`${styles.album}`} />
+                                </Grid>
+                                <Grid container item xs={7} className={`${styles.column}`}>
+                                    <p>{playlistThree}</p>
+                                    <p>{playlistThreeArtist}</p>
+                                </Grid>
+                            </Grid>
                         </Paper>
-                        <Paper>
-                            <p>{playlistFour}</p>
-                            <p>{playlistFourArtist}</p>
-                            <img src={playlistFourImage} />
+                        <Paper className={`${styles.card}`}>
+                            <Grid container direction="row" justify="flex-start" alignItems="center">
+                                <Grid item xs={5}>
+                                    <img src={playlistFourImage} className={`${styles.album}`} />
+                                </Grid>
+                                <Grid container item xs={7} className={`${styles.column}`}>
+                                    <p>{playlistFour}</p>
+                                    <p>{playlistFourArtist}</p>
+                                </Grid>
+                            </Grid>
                         </Paper>
-                        <Paper>
-                            <p>{playlistFive}</p>
-                            <p>{playlistFiveArtist}</p>
-                            <img src={playlistFiveImage} />
+                        <Paper className={`${styles.card}`}>
+                            <Grid container direction="row" justify="flex-start" alignItems="center">
+                                <Grid item xs={5}>
+                                    <img src={playlistFiveImage} className={`${styles.album}`} />
+                                </Grid>
+                                <Grid container item xs={7} className={`${styles.column}`}>
+                                    <p>{playlistFive}</p>
+                                    <p>{playlistFiveArtist}</p>
+                                </Grid>
+                            </Grid>
                         </Paper>
                     </Paper>
                 </div>

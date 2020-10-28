@@ -4,7 +4,7 @@ import styles from '../modules/Header.module.css';
 const Header = () => {
     return(
         <div className={`container-fluid`}>
-            <h1 className={`d-flex justify-content-left pt-5 pb-1 ml-5 ${styles.em}`}>Playlistr</h1>
+            <h1 className={`d-flex justify-content-center pt-5 pb-1 ml-5 mb-5 ${styles.em}`}>Playlistr</h1>
         </div>
     );
 };
