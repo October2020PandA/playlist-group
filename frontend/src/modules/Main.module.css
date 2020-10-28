@@ -1,25 +1,36 @@
 .paper {
     font-weight: 300;
-    /* font-size: 2em; */
-    padding: 3em 2em;
     width: 500px;
     max-width: 520px;
     min-width: 300px;
     margin-bottom: 2.5rem;
+    padding: 2em 2.5em;
 }
-
-
-
 .songField {
     margin-bottom: 1.5em;
     font-weight: 300;
     width: 10em;
+    height: 2em;
+    padding: 0 1em;
+    border-radius: 20px;
+    border: 1px solid lightgrey;
+    mso-border-shadow: no;
 }
-
 .selectField {
     font-weight: 300;
 }
-
 .header {
-    font-size: 1.1em;
+    font-weight: 400;
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+.column {
+    margin-left: 1em;
+}
+.album {
+    height: 98px;
+}
+.card {
+    margin-bottom: 1em;
+    height: 100px;
 }

@@ -4,6 +4,10 @@ html {
 
 body {
   height: 100%;
+  background: rgb(48,207,208);
+  background: linear-gradient(109deg, rgba(48,207,208,1) 0%, rgba(51,8,103,1) 64%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 #root {
@@ -12,7 +16,6 @@ body {
 
 .App {
   height: 100%;
-  background-color: #fff8e7;
 }
 /* 
 .App-logo {
